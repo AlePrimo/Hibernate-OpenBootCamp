@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Configuración de conexión a la base de datos -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/proyecto_final_Hibernate_db</property>
+        <property name="hibernate.connection.username">${USERPOSTGRES}</property>
+        <property name="hibernate.connection.password">${POSTGRESPASS}</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Configuración de Creacion/Actualizacion/borrado de Tablas  -->
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- Configuración de BATCH -->
+        <property name="hibernate.jdbc.batch_size">100</property>
+        <property name="hibernate.jdbc.order_inserts">true</property>
+        <!-- Configuración de importacion de archivos SQL para poblar la base de datos
+        <property name="hibernate.hbm2ddl.import_files">archivo1.sql,archivo2.sql</property>
+        AL CONFIGURAR ESTA PROPIEDAD SE PODRAN AGREGAR ARCHIVOS SQL QUE CONTENGAN DATOS PARA LA BASE-->
+
+        <!-- Configuration de Entidades -->
+
+        <mapping class="com.example.entities.User"/>
+        <mapping class="com.example.entities.Tag"/>
+        <mapping class="com.example.entities.Task"/>
+        <mapping class="com.example.entities.BillingInfo"/>
+
+    </session-factory>
+</hibernate-configuration>
+
+
+        <!-- "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" -->
